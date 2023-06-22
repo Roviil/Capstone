@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   Future<List<Map<String, dynamic>>> _getMaxScores() async {
     final response = await http.get(
-        Uri.parse('http://203.247.42.144:443/gScore/maxScore'));
+        Uri.parse('http://localhost:3000/gScore/maxScore'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body) as List<dynamic>;
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
     final maxScores = await _getMaxScores();
     final response = await http.get(
-      Uri.parse('http://203.247.42.144:443/gScore/user'),
+      Uri.parse('http://localhost:3000/gScore/user'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': token,
@@ -207,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       }
 
       final response = await http.get(
-        Uri.parse('http://203.247.42.144:443/user/student'),
+        Uri.parse('http://localhost:3000/user/student'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': token,
@@ -326,7 +326,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
                   // Send password change request
                   final response = await http.put(
-                    Uri.parse('http://203.247.42.144:443/user/password'),
+                    Uri.parse('http://localhost:3000/user/password'),
                     headers: <String, String>{
                       'Content-Type': 'application/json; charset=UTF-8',
                       'Authorization': token
@@ -453,7 +453,7 @@ class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fileName = '$studentId.png';
-    final imageUrl = 'http://203.247.42.144:443/user/loding?image=$fileName';
+    final imageUrl = 'http://localhost:3000/user/loding?image=$fileName';
 
     String departmentText = '컴퓨터공학과 | $grade학년';
     if (permission == '2' || permission == '3') {
@@ -1097,7 +1097,7 @@ class _PercentDonutState extends State<PercentDonut> {
 
   Future<Map<String, dynamic>> _getMaxScore() async {
     final response = await http.get(
-      Uri.parse('http://203.247.42.144:443/gScore/maxScore'),
+      Uri.parse('http://localhost:3000/gScore/maxScore'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

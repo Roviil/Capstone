@@ -127,7 +127,7 @@ class CompletionProvider extends ChangeNotifier {
     }
 
     // 서버에서 해당 과목 삭제
-    final url = Uri.parse('http://203.247.42.144:443/user/required/delete');
+    final url = Uri.parse('http://localhost:3000/user/required/delete');
     final response = await http.delete(url);
 
     if (response.statusCode == 200) {

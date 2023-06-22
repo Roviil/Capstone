@@ -35,7 +35,7 @@ class _MyScorePage extends State<MyScorePage> with TickerProviderStateMixin {
 
   Future<List<Map<String, dynamic>>> _getMaxScores() async {
     final response = await http.get(
-        Uri.parse('http://203.247.42.144:443/gScore/maxScore'));
+        Uri.parse('http://localhost:3000/gScore/maxScore'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body) as List<dynamic>;
@@ -75,7 +75,7 @@ class _MyScorePage extends State<MyScorePage> with TickerProviderStateMixin {
       }
     }
     final response = await http.get(
-      Uri.parse('http://203.247.42.144:443/gScore/user'),
+      Uri.parse('http://localhost:3000/gScore/user'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': token,
@@ -135,7 +135,7 @@ class _MyScorePage extends State<MyScorePage> with TickerProviderStateMixin {
 
       print(postData);
       final detailsResponse = await http.post(
-        Uri.parse('http://203.247.42.144:443/gScore/detail'),
+        Uri.parse('http://localhost:3000/gScore/detail'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': token,

@@ -55,7 +55,7 @@ class _MyDrawerState extends State<MyDrawer> {
     }
 
     final response = await http.get(
-      Uri.parse('http://203.247.42.144:443/post/getnotification'),
+      Uri.parse('http://localhost:3000/post/getnotification'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': token,
@@ -81,7 +81,7 @@ class _MyDrawerState extends State<MyDrawer> {
     }
 
     final response = await http.get(
-      Uri.parse('http://203.247.42.144:443/post/updatenotification'),
+      Uri.parse('http://localhost:3000/post/updatenotification'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': token,
@@ -131,7 +131,7 @@ class _MyDrawerState extends State<MyDrawer> {
     };
 
     final response = await http.post(
-      Uri.parse('http://203.247.42.144:443/post/write'),
+      Uri.parse('http://localhost:3000/post/write'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': token,
@@ -170,7 +170,7 @@ class _MyDrawerState extends State<MyDrawer> {
     }
 
     final response = await http.get(
-      Uri.parse('http://203.247.42.144:443/user/student'),
+      Uri.parse('http://localhost:3000/user/student'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': token,
@@ -281,7 +281,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                     currentAccountPicture: ClipOval(
                       child: Image.network(
-                        'http://203.247.42.144:443/user/loding?image=$fileName',
+                        'http://localhost:3000/user/loding?image=$fileName',
                         loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
                           if (loadingProgress == null) {
                             return child;

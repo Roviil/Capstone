@@ -79,7 +79,7 @@ class _CompletedSubjectSelectPageState
   //모든 과목정보 불러오기
   Future<void> fetchSubjects() async {
     final response =
-    await http.get(Uri.parse('http://203.247.42.144:443/subject/'));
+    await http.get(Uri.parse('http://localhost:3000/subject/'));
 
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body);
